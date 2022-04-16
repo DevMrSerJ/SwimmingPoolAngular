@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-body">
+    <p *ngIf="user?.id">Id - {{ user?.id }}</p>
+    <p *ngIf="user?.login">Login - {{ user?.login }}</p>
+    <p *ngIf="user?.name">Name - {{ user?.name }}</p>
+    <p *ngIf="user && user.age > 0">Age - {{ user?.age }}</p>
+    <p *ngIf="user?.address">Address - {{ user?.address }}</p>
+    <p *ngIf="user?.phone">Phone - {{ user?.phone }}</p>
+    <p *ngIf="user?.email">Email - {{ user?.email }}</p>
+  </div>
+</div>

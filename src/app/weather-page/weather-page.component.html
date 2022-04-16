@@ -1,0 +1,48 @@
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body class="main-body">
+<div class="back">
+  <div class="card">
+    <h5>Прогноз погоды в {{ getNameCity() }}</h5>
+    <p-table [value]="weather" [resizableColumns]="true" styleClass="p-datatable-gridlines" responsiveLayout="scroll">
+      <ng-template pTemplate="header">
+        <tr>
+          <th pResizableColumn>День</th>
+          <th pResizableColumn>Дневная температура</th>
+          <th pResizableColumn>Ночная температура</th>
+          <th pResizableColumn>Влажность</th>
+          <th pResizableColumn>Скорость ветра</th>
+          <th pResizableColumn>Облачность</th>
+          <th pResizableColumn>Вероятность осадков</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-weather>
+        <tr>
+          <td>{{weather.date}}</td>
+          <td>{{weather.dayTemperature}}</td>
+          <td>{{weather.nightTemperature}}</td>
+          <td>{{weather.humidity}}%</td>
+          <td>{{weather.windSpeed}}</td>
+          <td>{{weather.clouds}}%</td>
+          <td>{{weather.pop}}%</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <br>
+  <p>
+    Ваше местоположение
+  </p>
+  <div class="block-map">
+    <mgl-map
+      [style]="'mapbox://styles/mapbox/streets-v9'"
+      [zoom]="[16]"
+      [center]="[getLongitude(), getLatitude()]"
+    >
+    </mgl-map>
+  </div>
+</div>
+</body>

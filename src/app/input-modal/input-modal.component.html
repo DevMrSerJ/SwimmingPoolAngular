@@ -1,0 +1,33 @@
+<div id="exampleModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ inputModal?.titleModal }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="workUserForm">
+          <div class="form-group">
+            <label for="recipient-name-idName-input" class="col-form-label">{{ inputModal?.titleIdName }}:</label>
+            <input type="text" class="form-control" id="recipient-name-idName-input" formControlName="idName">
+          </div>
+          <div class="form-group" *ngIf="inputModal?.titleLoginName">
+            <label for="recipient-name-loginName-input" class="col-form-label">{{ inputModal?.titleLoginName }}:</label>
+            <input type="text" class="form-control" id="recipient-name-loginName-input" formControlName="loginName">
+          </div>
+          <div class="form-group" *ngIf="inputModal?.titleActiveName">
+            <label for="recipient-name-activeName-input" class="col-form-label">{{ inputModal?.titleActiveName }}:</label>
+            <input type="checkbox" class="form-control" id="recipient-name-activeName-input" formControlName="activeName">
+          </div>
+        </form>
+        <p class="dialog-error">{{ inputModal?.errorText }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">закрыть</button>
+        <button type="button" class="btn btn-primary" (click)="processingModal()">{{ inputModal?.titleButtonStart }}</button>
+      </div>
+    </div>
+  </div>
+</div>

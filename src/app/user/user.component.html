@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <base href="user">
+  <title>Title</title>
+</head>
+<body class="main-body">
+
+<app-info-modal [infoModal]="getInfoModal()"></app-info-modal>
+
+<app-input-modal [inputModal]="getInputModal()" (sendRequest)="processingModal($event)"></app-input-modal>
+
+<div class="back">
+  <div class="get-all-users">
+    <div class="text-description">
+      <p>Для получения всех пользователей </p>
+    </div>
+    <div class="btn-event">
+      <button type="button" class="btn btn-primary btn-lg" (click)="getAllUsers()">получить</button>
+    </div>
+  </div>
+  <div class="get-all-users">
+    <div class="text-description">
+      <p>Для получения информации о пользователе </p>
+    </div>
+    <div class="btn-event">
+      <button type="button" class="btn btn-primary btn-lg" (click)="showModalOneUser()">получить</button>
+    </div>
+  </div>
+  <div class="get-all-users">
+    <div class="text-description">
+      <p>Создать нового пользователя </p>
+    </div>
+    <div class="btn-event">
+      <button type="button" class="btn btn-secondary btn-lg" (click)="showModalCreateUser()">создать</button>
+    </div>
+  </div>
+  <div class="get-all-users">
+    <div class="text-description">
+      <p>Изменить пользователя </p>
+    </div>
+    <div class="btn-event">
+      <button type="button" class="btn btn-warning btn-lg" (click)="showModalEditUser()">изменить</button>
+    </div>
+  </div>
+  <div class="get-all-users">
+    <div class="text-description">
+      <p>Изменить активность пользователя </p>
+    </div>
+    <div class="btn-event">
+      <button type="button" class="btn btn-warning btn-lg" (click)="showModalEditActivityUser()">изменить</button>
+    </div>
+  </div>
+</div>
+</body>
+
+<app-footer></app-footer>
+</html>
