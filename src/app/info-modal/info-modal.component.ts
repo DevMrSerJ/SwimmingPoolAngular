@@ -10,6 +10,7 @@ export interface InfoModal {
   successText: string;
   titleModal: string;
   isResponseReceived: boolean;
+  isView: boolean;
 }
 
 @Component({

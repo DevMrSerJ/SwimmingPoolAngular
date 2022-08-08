@@ -11,6 +11,7 @@ export interface InputModal {
   titleActiveName: string;
   errorText: string;
   titleButtonStart: string;
+  isView: boolean;
 }
 
 @Component({

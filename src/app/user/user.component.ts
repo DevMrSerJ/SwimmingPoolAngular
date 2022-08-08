@@ -33,6 +33,16 @@ export class UserComponent {
   private titleModal: string = "";
 
   /**
+   * Необходимость отображения информационного модального окна.
+   */
+  private isViewInfo: boolean = false;
+
+  /**
+   * Необходимость отображения модального окна с полями ввода.
+   */
+  private isViewInput: boolean = false;
+
+  /**
    * Текст кнопки для запуска запросов на сервер.
    */
   private titleButtonStart: string = "";
@@ -99,6 +109,7 @@ export class UserComponent {
       successText: this.successText,
       titleModal: this.titleModal,
       isResponseReceived: this.isResponseReceived,
+      isView: this.isViewInfo
     };
   }
 
@@ -112,7 +123,8 @@ export class UserComponent {
       titleLoginName: this.titleLoginName,
       titleActiveName: this.titleActiveName,
       errorText: this.errorText,
-      titleButtonStart: this.titleButtonStart
+      titleButtonStart: this.titleButtonStart,
+      isView: this.isViewInput
     };
   }
 
@@ -139,8 +151,8 @@ export class UserComponent {
     this.successText = "";
     this.isResponseReceived = false;
 
-    $('#exampleModal').modal('show');
-    $('#exampleModalScrollable').modal('show');
+    this.isViewInfo = true;
+    this.isViewInput = true;
   }
 
   /**
@@ -153,7 +165,7 @@ export class UserComponent {
     this.titleButtonStart = "получить данные";
     this.isResponseReceived = false;
 
-    $('#exampleModalScrollable').modal('show');
+    this.isViewInput = true;
 
     this.httpService.getUsers().subscribe(
       (data:any) => {
@@ -187,7 +199,7 @@ export class UserComponent {
     this.titleButtonStart = "получить данные";
     this.titleIdName = "Id пользователя";
 
-    $('#exampleModal').modal('show');
+    this.isViewInfo = true;
 
     this.processingModal = this.getOneUser;
   }
@@ -232,7 +244,7 @@ export class UserComponent {
     this.titleIdName = "ФИО";
     this.titleLoginName = "Логин";
 
-    $('#exampleModal').modal('show');
+    this.isViewInfo = true;
 
     this.processingModal = this.createUser;
   }
@@ -271,7 +283,7 @@ export class UserComponent {
     this.titleIdName = "Id пользователя";
     this.titleLoginName = "Id контакта";
 
-    $('#exampleModal').modal('show');
+    this.isViewInfo = true;
 
     this.processingModal = this.editCurrentUser;
   }
@@ -314,7 +326,7 @@ export class UserComponent {
     this.titleIdName = "Id пользователя";
     this.titleActiveName = "Активность";
 
-    $('#exampleModal').modal('show');
+    this.isViewInfo = true;
 
     this.processingModal = this.editActivityUser;
   }
